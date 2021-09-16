@@ -3,13 +3,13 @@ from chatterbot import trainers
 
 alfred = ChatBot(
     'Baby Alfred',
-    storage_adapter = 'K:\\Capturas Tokio\\sqlite-snapshot-202108231028',
+    storage_adapter = 'chatterbot.storage.SQLStorageAdapter',
     logic_adapters= [
         'chatterbot.logic.MathematicalEvaluation',
         'chatterbot.logic.TimeLogicAdapter'
     ],
     
-    database_uri = 'sqlite:///database.sqlite3'
+    database_uri = 'K:\\database.sqlite3'
 )
 
 while True:
