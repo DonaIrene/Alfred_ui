@@ -1,63 +1,71 @@
+from os import stat
+import tkinter as tk
+from tkinter.constants import N
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
-import tkinter as tk
-
-try:
-    import ttk as ttk
-    import ScrolledText
-except ImportError:
-    import tkinter.ttk as tkk
-    import tkinter.scrolledtext as ScrolledText
+from tkinter import Button, ttk
 import time
 
-class TkinterGuiExample(tk.Tk):
 
-    def __init__(self, *args, **kwargs):
 
-        tk.Tk.__init_(self,*args,**kwargs)
 
-        self.chatbot = ChatBot(
-            "Alfred",
-            storage_adapter = "chatterbot.storage.SQLStorage.Adapter",
-            logic_adapter =[
-                "chatterbot.logic.BestMatch"
-            ],
-            database_Url = "sqlite:///database.sqlite3"
-            )
-        trainer = ListTrainer(self.chatbot)
-        self.title("Baby Alfred #1")
 
-        self.initialize()
+class Alfred_Bot(tk.Frame):
+    
+    def __init__(self, master=None):
+        super().__init__(master)
+        self.master = master
+        self.pack()
+        self.app_interface()
+    
+    
+    def chatbot_mem():
+        chatbot = ChatBot(
+            'Baby Alfred',
+        storage_adapter = 'chatterbot.storage.SQLStorage.Adapter',
+        logic_adapter = [{
+            "chatterbot.logic.BestMatch"
 
-    def initialize(self):
-        self.grid ()
+        }
+        ],
+        database_url = "sqlite:///database.sqlite3"
+)
+        trainer = ListTrainer(chatbot)
 
-        self.respond = ttk.Button (self, Text = "Get Response", command = self.get_response)
-        self.respond.grip(colum=0, row=0, sticky='nesw', padx=3, pady=3)
+        trainer.train([
+            'ola',
+            'Tudo bem?',
 
-        self.usr_input = ttk.Entry(self, state='normal')
-        self.usr_input. grid (column=1, row=0, sticky='nesw', padx=3, pady=3)
+    ])
 
-        self.conversation_lbl = ttk.Label(self, anchor=tk.E, text='Conversation: ')
-        self.conversation_lbl.grid(column=0, row=1, sticky='nesw', padx=3, pady=3)
+    
+    
+    def app_interface(self):
+        self.app_gui_conversation = ttk.Label (self, text='Conversa')
+        self.app_gui_conversation.pack(side='top')
 
-        self.conversation = ScrolledText.ScrolledText(self, state= 'disabled')
-        self.conversation.grid(column=0,row=2, columnspan=2, sticky='nesw', padx=3, pady=3)
+        self.app_gui_button = ttk.Button(self, text='Confirm' ,command=self.get_response)
+        self.app_gui_button.pack( anchor='nw')
+        
+        self.app_gui_input = ttk.Entry(self, state='normal')
+        self.app_gui_input.pack(anchor='nw')
 
 
     def get_response(self):
 
-        user_input = self.usr_input.get()
-        self.usr_input.delete(0, tk.END)
+        app_gui_input = self.app_gui_input.get()
+        self.app_gui_input.delete(0, tk.END)
 
-        response = self.chatbot.get_response(user_input)
-        self.conversation.insert(
-            tk.END, "Human: " + "\n" + "ChatBot: " + str(response.text) + "\n"
+        response = self.chatbot.get_response(app_gui_input)
+        self.app_gui_conversation.insert(str (response)
         )
-        self.conversation['state']='disabled'
-        time.sleep(0.5)
+        self.app_gui_conversation['state']='disabled'
+        time.sleep(0.1)
+    
+    
+        
 
-
-gui_example = TkinterGuiExample()
-gui_example.mainloop()
+root = tk.Tk()
+app = Alfred_Bot(master=root)
+app.mainloop()
 
