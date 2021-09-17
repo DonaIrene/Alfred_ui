@@ -9,7 +9,7 @@ alfred = ChatBot(
         'chatterbot.logic.TimeLogicAdapter'
     ],
     
-    database_uri = 'K:\\database.sqlite3'
+    database_uri = 'sqlite:///database.sqlite3'
 )
 
 while True:
