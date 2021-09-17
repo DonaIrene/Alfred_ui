@@ -68,4 +68,3 @@ class Alfred_Bot(tk.Frame):
 root = tk.Tk()
 app = Alfred_Bot(master=root)
 app.mainloop()
-
