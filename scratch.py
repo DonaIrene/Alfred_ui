@@ -37,5 +37,5 @@ while True:
     except (KeyboardInterrupt, EOFError, SystemError):
         break
 
-response = bot.get_response('How do I make a omelette?')
+response = bot.get_response('')
 print(response)
