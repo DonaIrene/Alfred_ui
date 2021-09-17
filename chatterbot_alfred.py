@@ -1,35 +1,46 @@
 from chatterbot import ChatBot
+from chatterbot.trainers import ListTrainer
 import tkinter as tk
+import sys
 
 try:
     import ttk as ttk
     import ScrolledText
 except ImportError:
-    import tkinter.ttk as tk
+    import tkinter.ttk as ttk
     import tkinter.scrolledtext as ScrolledText
 import time
 
 class TkinterGuiExample(tk.Tk):
 
     def __init__(self, *args, **kwargs):
+        
 
-        tk.Tk.__init_(self,*args,**kwargs)
+
 
         self.chatbot = ChatBot(
             "Alfred",
-            storage_adapter = "chatterbot.storage.SQLStorage.Adapter",
-            logic_adapter =[
-                "chatterbot.logic.BestMatch"
+            storage_adapter = "chatterbot.storage.SQLStorageAdapter",
+            logic_adapter =[{
+                'import_patch': "chatterbot.logic.BestMatch"
+            }
             ],
             database_Url = "sqlite:///database.sqlite3"
             )
 
-        self.title("Baby Alfred #1")
+        trainer = ListTrainer(self.chatbot)
+
+        trainer.train([
+            'Olá',
+            'Tudo bem?',
+            'Sim e com você?',
+
+        ])
+
 
         self.initialize()
 
     def initialize(self):
-        self.grid ()
 
         self.respond = ttk.Button (self, Text = "Get Response", command = self.get_response)
         self.respond.grip(colum=0, row=0, sticky='nesw', padx=3, pady=3)
@@ -58,5 +69,6 @@ class TkinterGuiExample(tk.Tk):
 
 
 gui_example = TkinterGuiExample()
+print(sys.setecursionlimit(150))
 gui_example,tk.mainloop()
 
