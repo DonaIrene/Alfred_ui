@@ -15,16 +15,17 @@ class TkinterGuiExample(tk.Tk):
 
     def __init__(self, *args, **kwargs):
         tk.Tk().__init__()
-        
-
+        tk.Tk('720x720')
+        self.grid()
 
 
         self.chatbot = ChatBot(
             "Alfred",
             storage_adapter = "chatterbot.storage.SQLStorageAdapter",
-            logic_adapter =[{
+            logic_adapter =[
+                {
                 'import_patch': "chatterbot.logic.BestMatch"
-            }
+                }
             ],
             database_Url = "sqlite:///database.sqlite3"
             )
