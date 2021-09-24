@@ -2,14 +2,14 @@ import os
 import shutil
 import glob
 
-source = 'C:\\Users\\lucas\\Downloads\\'
+source = 'C:\\Users\\Lucas Costa\\Downloads\\'
 my_dirct = {
-    'C:\\Users\\lucas\\Downloads\\Imagens': ['jpg','png','gif'],
-    'C:\\Users\\lucas\\Downloads\\Zippadas': ['rar','zip','7z','tar'],
-    'C:\\Users\\lucas\\Downloads\\Executavais': ['exe','msi'],
-    'C:\\Users\\lucas\\Downloads\\PDF':['pdf','docx', 'doc', 'xls'],
-    'C:\\Users\\lucas\\Downloads\\Musicas':['mp3','mp4'],
-    'C:\\Users\\lucas\\Downloads\\Outros' : ['.rmskin']
+    'C:\\Users\\Lucas Costa\\Downloads\\Imagens': ['jpg','png','gif'],
+    'C:\\Users\\Lucas Costa\\Downloads\\Zippadas': ['rar','zip','7z','tar'],
+    'C:\\Users\\Lucas Costa\\Downloads\\Executaveis': ['exe','msi'],
+    'C:\\Users\\Lucas Costa\\Downloads\\PDF':['pdf','docx', 'doc', 'xls'],
+    'C:\\Users\\Lucas Costa\\Downloads\\Musicas':['mp3','mp4'],
+    'C:\\Users\\Lucas Costa\\Downloads\\Outros' : ['.rmskin']
 }
 for destination, extensions in my_dirct.items():
     for ext in extensions:
