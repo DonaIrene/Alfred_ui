@@ -14,18 +14,16 @@ import time
 class TkinterGuiExample(tk.Tk):
 
     def __init__(self, *args, **kwargs):
-        tk.Tk().__init__()
-        tk.Tk('720x720')
-        self.grid()
+        
+
 
 
         self.chatbot = ChatBot(
             "Alfred",
             storage_adapter = "chatterbot.storage.SQLStorageAdapter",
-            logic_adapter =[
-                {
+            logic_adapter =[{
                 'import_patch': "chatterbot.logic.BestMatch"
-                }
+            }
             ],
             database_Url = "sqlite:///database.sqlite3"
             )
@@ -44,14 +42,11 @@ class TkinterGuiExample(tk.Tk):
 
     def initialize(self):
 
-        tk.Tk('720x720')
-        self.grid()
-
         self.respond = ttk.Button (self, Text = "Get Response", command = self.get_response)
         self.respond.grip(colum=0, row=0, sticky='nesw', padx=3, pady=3)
 
         self.usr_input = ttk.Entry(self, state='normal')
-        self.usr_input.grid (column=1, row=0, sticky='nesw', padx=3, pady=3)
+        self.usr_input. grid (column=1, row=0, sticky='nesw', padx=3, pady=3)
 
         self.conversation_lbl = ttk.Label(self, anchor=tk.E, text='Conversation: ')
         self.conversation_lbl.grid(column=0, row=1, sticky='nesw', padx=3, pady=3)
@@ -75,5 +70,5 @@ class TkinterGuiExample(tk.Tk):
 
 gui_example = TkinterGuiExample()
 print(sys.setecursionlimit(150))
-gui_example.mainloop()
+gui_example.tk.mainloop()
 
