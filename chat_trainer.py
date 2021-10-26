@@ -19,13 +19,10 @@ bot = ChatBot(
 treiner = ListTrainer(bot)
 
 treiner.train = ([
-    'hey',
-    'how are you',
-    'Its good to hear that!',
-    'How can I help you?',
-    "i'm going to check sir.",
-
-
+    'Oi',
+    'Tudo bem?',
+    'Sim e com você?',
+    'Ainda Bem, é bom ouvir isso!'
 ])
 
 
