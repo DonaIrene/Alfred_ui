@@ -16,4 +16,3 @@ for destination, extensions in my_dirct.items():
         for file in glob.glob(source + '*.' + ext):
             print (file)
             shutil.move(file, destination)
-
