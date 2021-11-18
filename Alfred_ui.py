@@ -1,8 +1,9 @@
 import sys
+from tkinter import Label
 from PyQt5.QtCore import Qt, center
 from PyQt5.QtWidgets import (QGridLayout, QLabel, QMainWindow, QTextEdit, QToolTip,QPushButton,
      QApplication, QWidget)
-from PyQt5.QtGui import QFont, QIcon
+from PyQt5.QtGui import QFont, QIcon, QTextFrame
 from TrueBot import treiner
 
 

@@ -51,7 +51,7 @@ class TkinterGuiExample(tk.Tk):
         self.conversation_lbl = ttk.Label(self, anchor=tk.E, text='Conversation: ')
         self.conversation_lbl.grid(column=0, row=1, sticky='nesw', padx=3, pady=3)
 
-        self.conversation = ScrolledText.ScrolledText(self, state= 'disabled')
+        self.conversation = ScrolledText.ScrolledText(self, state= 'enable')
         self.conversation.grid(column=0,row=2, columnspan=2, sticky='nesw', padx=3, pady=3)
 
 
@@ -64,7 +64,7 @@ class TkinterGuiExample(tk.Tk):
         self.conversation.insert(
             tk.END, "Human: " + "\n" + "ChatBot: " + str(response.text) + "\n"
         )
-        self.conversation['state']='disabled'
+        self.conversation['state']='enable'
         time.sleep(0.5)
 
 
