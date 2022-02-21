@@ -30,5 +30,3 @@ for i in range(4320):
                 print (file)
                 shutil.move(file, destination)
     time.sleep(180)
-
-
