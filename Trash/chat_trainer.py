@@ -18,8 +18,7 @@ class TkinterGuiExample(tk.Tk):
                 storage_adapter ='chatterbot.storage.SQLStorageAdapter',
                 logic_adapters = [{
                 'import_path': 'chatterbot.logic.BestMatch',
-                'defeault_response': "I'm sorry, but I do not understand.",
-                'maximum_similarity_threshold': 0.90
+                'defeault_response': "I'm sorry, but I do not understand."
             }],
             database_uri = 'sqlite:///database.sqlite3'
             )
