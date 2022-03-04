@@ -5,7 +5,7 @@ import time
 from unittest.mock import patch
 
 #Directorio padrao do file
-source = 'C:\\Users\\Pao_de_Queijo\\Downloads\\'
+source = 'C:\\Users\\Pao_de_Queijo\\Downloads\\' #Diretorio padrão dos downloads
 newSource = 'C:\\Users\\Pao_de_Queijo\\Downloads'
 
 
